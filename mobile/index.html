@@ -8,7 +8,13 @@
   .stat-label { font-size: 11px; color: #666; letter-spacing: 0.05em; }
   .stat-val { font-size: 22px; font-weight: 700; color: #fff; line-height: 1.2; }
   #board-outer { width: 100%; max-width: 420px; padding: 0 8px; }
-  #board-wrap { position: relative; width: 100%; aspect-ratio: 9/16; max-height: 520px; background: #000; border-radius: 12px; overflow: hidden; border: 1px solid #2a2a2a; }
+  #board-wrap {
+     width: 100vw;
+  height: 100dvh;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 0;
+  }
   .lane-line { position: absolute; top: 0; bottom: 0; width: 1px; background: #1a1a1a; z-index: 1; }
   #hit-zone { position: absolute; left: 0; right: 0; border-top: 1.5px solid #378ADD; border-bottom: 1.5px solid #378ADD; background: rgba(55,138,221,0.07); pointer-events: none; z-index: 2; }
   .lane-btn { position: absolute; bottom: 0; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: #444; cursor: pointer; user-select: none; border-top: 1px solid #1a1a1a; transition: background 0.08s; z-index: 4; }
