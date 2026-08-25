@@ -1,7 +1,7 @@
 # KicitoR.github.io
 ## V-1.0.0
 #### Everything got reworked except everything in `/mobile`
-#### removed the script in `/index.html` that redirects mobile users to /mobile/index.html
+#### removed the script in `/index.html` that redirects mobile users to `/mobile/index.html`
 Changes commited:
 | Files  | Status |
 | ------------- |:-------------:|
