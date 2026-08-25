@@ -12,3 +12,5 @@ Changes commited:
 | `/secunda.html`      | **REMOVED**     |
 | `/josestalkin.html`     | **REMOVED**     |
 | `/assets` | **REMOVED** |
+
+## Feel free to fork my repo :3
