@@ -1,8 +1,0 @@
-<h1 id="message">Loading...</h1>
-<script>
-    fetch("https://api.josestalkin.workers.dev")
-        .then(res => res.text())
-        .then(text => {
-            document.getElementById("message").innerText = text;
-        });
-</script>
