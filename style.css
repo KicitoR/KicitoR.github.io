@@ -1,0 +1,355 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+
+  background: transparent;
+}
+
+
+/* =========================
+   FIXED BACKGROUND
+   ========================= */
+
+.background {
+  position: fixed;
+  inset: 0;
+
+  background-image: url("images/43cb72d63c08b5dca244477c47a3ac81.jpg");
+  background-size: cover;
+  background-position: center;
+
+  z-index: -10;
+}
+
+
+/* =========================
+   MAIN
+   ========================= */
+
+main {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: auto;
+  padding: 30px 6vw 80px;
+
+  position: relative;
+}
+
+
+/* =========================
+   PARALLAX ELEMENTS
+   ========================= */
+
+.parallax-item {
+  will-change: transform;
+}
+
+
+/* =========================
+   TITLES
+   ========================= */
+
+.title {
+  text-align: center;
+
+  margin: 0 auto 35px;
+}
+
+.title h1 {
+  display: inline-block;
+
+  margin: 0;
+
+  font-size: clamp(30px, 5vw, 52px);
+
+  text-shadow:
+    0 3px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+/* little decoration under title */
+
+.title h1::after {
+  content: "";
+
+  display: block;
+
+  width: 80px;
+  height: 6px;
+
+  margin: 12px auto 0;
+
+  border-radius: 10px;
+
+  background: #b58cff;
+
+  box-shadow:
+    20px 0 0 -1px #b58cff;
+}
+
+
+/* =========================
+   TEXT CARDS
+   ========================= */
+
+.card {
+  width: 100%;
+
+  padding: 28px 30px;
+
+  margin: 0 auto 35px;
+
+  border-radius: 16px;
+
+  background: rgba(20, 30, 60, 0.55);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card p {
+  margin: 0 0 14px;
+
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   YOUTUBE
+   ========================= */
+
+.video-container {
+  width: min(720px, 90%);
+
+  aspect-ratio: 16 / 9;
+
+  margin: 0 auto 40px;
+
+  overflow: hidden;
+
+  border-radius: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+  padding: 30px;
+
+  text-align: center;
+
+  background: rgba(5, 10, 30, 0.65);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+  main {
+    padding: 25px 15px 60px;
+  }
+
+  .card {
+    padding: 20px;
+
+    border-radius: 12px;
+  }
+
+  .card p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .video-container {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+}
+/* =================================
+   FULL SCREEN EFFECTS
+   ================================= */
+
+.screen-effects {
+  position: fixed;
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 1000;
+}
+
+
+/* Individual effect layers */
+
+.screen-effect {
+  position: absolute;
+
+  /*
+    Make it slightly larger than
+    the screen so movement doesn't
+    reveal empty edges.
+  */
+
+  width: 110vw;
+  height: 110vh;
+
+  max-width: none;
+
+  left: 50%;
+  top: 50%;
+
+  object-fit: cover;
+
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+
+  will-change: transform;
+}
+/* Unvisited link */
+a:link {
+  color: #f8f8f8; 
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+}
+
+/* Visited link */
+a:visited {
+  color: #fcfcfc; 
+  font-family: Arial, sans-serif;
+}
+
+/* Mouse over link */
+a:hover {
+  color: #fdfcfc; 
+  font-family: Arial, sans-serif;
+}
+
+/* Selected/clicked link @josestalkin*/
+a:active {
+  color: #f7f6f6; 
+  font-family: Arial, sans-serif;
+}
+.image-button {
+  width: 220px;
+  height: 140px;
+
+  margin: 30px auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  border-radius: 18px;
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.2);
+
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.image-button a {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-button img {
+  max-width: 80%;
+  max-height: 80%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+
+/* Hover */
+
+.image-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Press */
+
+.image-button:active {
+  transform: scale(0.96);
+}
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 12px;
+
+  width: 100%;
+  padding: 0 15px;
+}
+
+.button-row .image-button {
+  width: 30%;
+  aspect-ratio: 1 / 1;
+  max-width: none;
+}
