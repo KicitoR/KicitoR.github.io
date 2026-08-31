@@ -86,6 +86,79 @@ window.addEventListener("scroll", () => {
 
 }, { passive: true });
 
+function preloadImages() {
+
+  const images =
+    document.querySelectorAll("img");
+
+  const promises = [];
+
+  images.forEach(img => {
+
+    if (!img.src) return;
+
+    promises.push(
+      new Promise(resolve => {
+
+        if (img.complete) {
+          resolve();
+          return;
+        }
+
+        img.addEventListener(
+          "load",
+          resolve,
+          { once: true }
+        );
+
+        img.addEventListener(
+          "error",
+          resolve,
+          { once: true }
+        );
+
+      })
+    );
+
+  });
+
+  return Promise.all(promises);
+}
+
+window.addEventListener("load", async () => {
+
+  await preloadImages();
+
+  const loadingScreen =
+    document.getElementById("loading-screen");
+
+  const items =
+    document.querySelectorAll(".parallax-item");
+
+
+  /* Start elements one after another */
+
+  items.forEach((item, index) => {
+
+    item.style.setProperty(
+      "--enter-delay",
+      `${index * 0.12}s`
+    );
+
+    item.classList.add("enter");
+
+  });
+
+
+  /* Fade out loading screen */
+
+  setTimeout(() => {
+
+    loadingScreen.classList.add("loaded");
+
+  }, 250);
+
+});
 
 /* ================================
    ANIMATION
@@ -114,6 +187,74 @@ function animate() {
 
   });
 
+/*this */
+const hairFill =
+    document.querySelector(".hair-fill-color");
+
+
+function setLoadingProgress(percent) {
+
+    hairFill.style.height =
+        `${percent}%`;
+
+}
+let loaded = 0;
+let total = 0;
+
+function updateLoading() {
+
+    const percent =
+        Math.round((loaded / total) * 100);
+
+    setLoadingProgress(percent);
+
+}
+
+const images =
+    document.querySelectorAll("img");
+
+total = images.length;
+
+images.forEach(img => {
+
+    if (img.complete) {
+
+        loaded++;
+        updateLoading();
+
+    } else {
+
+        img.addEventListener("load", () => {
+
+            loaded++;
+            updateLoading();
+
+        });
+
+        img.addEventListener("error", () => {
+
+            loaded++;
+            updateLoading();
+
+        });
+
+    }
+
+});
+
+window.addEventListener("load", () => {
+
+    setLoadingProgress(100);
+
+    setTimeout(() => {
+
+        document
+            .getElementById("loading-screen")
+            .classList.add("loaded");
+
+    }, 500);
+
+});
 
   /* Screen effects */
 
