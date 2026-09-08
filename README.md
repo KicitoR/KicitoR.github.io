@@ -1,5 +1,5 @@
 # KicitoR.github.io
-## V-1.0.1
+## V-1.1.1
 #### added a loading screen (yay)
 Changes commited:
 | Files  | Status |
