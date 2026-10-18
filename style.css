@@ -562,3 +562,43 @@ a:active {
   }
 
 }
+/* Spotify grid */
+
+.spotify-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+
+    align-items: start;
+}
+
+.spotify-container {
+    width: 100%;
+    min-width: 0;
+    margin: 0 !important;
+    padding: 0;
+
+    box-sizing: border-box;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.spotify-container iframe {
+    display: block;
+    width: 100%;
+    height: 152px;
+    border: 0;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .spotify-grid {
+        grid-template-columns: 1fr;
+    }
+}
