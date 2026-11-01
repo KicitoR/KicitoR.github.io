@@ -1,4 +1,13 @@
 # KicitoR.github.io
+## V-2.0.0
+#### Added a Navigation Bar and a Dropdown Bar
+Changes commited:
+| Files  | Status |
+| ------------- |:-------------:|
+| `/index.html` | ***CHANGED*** |
+| `/script.js` | ***CHANGED*** |
+| `/style.css` | ***CHANGED*** |
+
 ## V-1.1.1
 #### added a loading screen (yay)
 Changes commited:
