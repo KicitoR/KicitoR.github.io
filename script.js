@@ -355,9 +355,6 @@ function updateClock() {
     document.getElementById("clockDate").textContent = date;
 }
 
-updateClock();
-setInterval(updateClock, 1000);
-
 const homeMenu = document.querySelector(".home-menu");
 const homeMenuToggle = document.getElementById("homeMenuToggle");
 const homeDropdown = document.getElementById("homeDropdown");
