@@ -11,6 +11,66 @@
 </head>
 
 <body>
+
+  <nav class="floating-nav" id="floatingNav">
+    
+<div class="home-menu">
+    <!-- Home logo toggles the dropdown -->
+    <button class="home-menu-toggle"
+            id="homeMenuToggle"
+            aria-label="Open home menu"
+            aria-expanded="false">
+        <img id="homeMenuIcon"
+         src="images/open.png"
+         alt="">
+    </button>
+
+    <!-- Dropdown image buttons -->
+    <div class="home-dropdown" id="homeDropdown">
+
+        <a href="index.html"
+          class="dropdown-item"
+          rel="noopener noreferrer">
+          <img src="images/reload.png" alt="">
+          <span>Reload</span>
+        </a>
+
+        <a href="https://open.spotify.com/user/eyczlex5ln4kf2rm2b00qqnia"
+          class="dropdown-item"
+          target="_blank"
+          rel="noopener noreferrer">
+          <img src="images/spotify.png" alt="">
+          <span>Spotify</span>
+        </a>
+        <!--button class="dropdown-item"
+                data-page="about"
+                aria-label="About">
+            <img src="images/bwig.png" alt="">
+            <span>Instagram</span>
+        </button-->
+        <a href="https://www.instagram.com/josestalkin/"
+          class="dropdown-item"
+          rel="noopener noreferrer">
+          <img src="images/bwig.png" alt="">
+          <span>Instagram</span>
+        </a>
+        <a href="mobile/index.html"
+          class="dropdown-item"
+          rel="noopener noreferrer">
+          <img src="images/accf0d55d1fa88611bb1a2bc75494300.png" alt="">
+          <span>Game</span>
+        </a>
+    </div>
+</div>
+
+
+    <div class="nav-links">
+    <button class="nav-link active" data-page="home">Home</button>
+    <button class="nav-link" data-page="about">About</button>
+    <button class="nav-link" data-page="projects">Projects</button>
+    </div>
+</nav>
+
   <div id="loading-screen">
 
     <div class="loading-container">
@@ -56,6 +116,76 @@
 </div>
   <div class="background"></div>
   <main>
+    
+<section id="home" class="page active">
+
+    <div class="home-hero">
+
+        <!-- lefty -->
+        <div class="hero-copy">
+            <span class="hero-eyebrow">WELCOME</span>
+
+            <h1>
+                A Little World
+                <br>
+                <span>Of My Own.</span>
+            </h1>
+
+            <p class="hero-description">
+                A personal space for my projects, experiments,
+                and everything that sparks my curiosity.
+                Explore what I'm building and discovering.
+            </p>
+
+            <button class="hero-button"
+                    onclick="document.querySelector('[data-page=about]').click()">
+                Get to know me <span>↗</span>
+            </button>
+
+            <div class="hero-note">
+                <span class="hero-note-dot"></span>
+                Exploring ideas, one project at a time.
+            </div>
+        </div>
+
+        <!-- RIGHT: GLASS CLOCK -->
+        <div class="parallax-item hero-clock"
+             data-strength="0.08">
+
+            <div class="glass-clock">
+
+                <div class="clock-header">
+                    <span class="clock-label">LOCAL TIME</span>
+
+                    <span class="clock-live">
+                        <span class="live-dot"></span>
+                        LIVE
+                    </span>
+                </div>
+
+                <div class="clock-time" id="clockTime">
+                    00:00:00
+                </div>
+
+                <div class="clock-date" id="clockDate">
+                    Loading date...
+                </div>
+
+                <div class="clock-divider"></div>
+
+                <div class="clock-location">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <section id="about" class="page">
     <div class="parallax-item title" data-strength="0.10">
       <h1>About Me</h1>
     </div>
@@ -73,7 +203,92 @@
 
       </p>
     </div>
-    <div class="parallax-item title" data-strength="0.12">
+    </section>
+
+    <!-- 2 i think -->
+     <section id="projects" class="page">
+    <div class="parallax-item projects-panel"
+         data-strength="0.08">
+
+        <div class="projects-header">
+            <span class="section-badge">Portfolio</span>
+
+            <h1>Featured <span class="hero-glow">Projects</span></h1>
+
+            <p>
+                A collection of my recent work showcasing
+                creativity and technical expertise.
+            </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+        <div class="parallax-item" data-strength="0.08">
+            <article class="project-card">
+                <img src="images/43cb72d63c08b5dca244477c47a3ac81.jpg"
+                     alt="dis website lol"
+                     class="project-image">
+
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="tag cyan">JS</span>
+                    </div>
+
+                    <h2>This Website (lol)</h2>
+                    <p>A website. That's it.</p>
+
+                    <div class="project-footer">
+                        <a href="https://github.com/KicitoR/KicitoR.github.io" class="project-link">
+                            View GitHub Repository
+                        </a>
+
+                        <div class="project-actions">
+                            <a href="https://github.com/KicitoR/KicitoR.github.io" aria-label="GitHub">↗</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+          <!--template-->
+          <div class="parallax-item" data-strength="0.08">
+            <article class="project-card">
+                <img src="images/footer.png"
+                     alt="ard"
+                     class="project-image">
+
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="tag pink">C++</span>
+                    </div>
+
+                    <h2>Arduino Projects</h2>
+                    <p> I'll be adding a project documentation soon! :3 </p>
+
+                    <div class="project-footer">
+                    </div>
+                </div>
+            </article>
+        </div>
+        <!--end-->>
+        </div>
+
+    </div>
+</section>
+<section id='redirect' class='page'>
+  <div class="parallax-item card" data-strength="0.06">
+    <p> Redirecting...</p>
+    </div>
+</section>
+
+<!--section id='xx' class='page'></section-->
+
+    <div class="invisible-border-thing" data-strength="0.05">
+      <p>
+
+
+      </p>
+    </div>
+    <div class="parallax-item title" data-strength="0.03">
       <h1>Miscellaneous </h1>
     </div>
     <div class="parallax-item video-container" data-strength="0.03">
@@ -165,19 +380,19 @@
     
     <div class="button-row">
 
-  <div class="parallax-item image-button" data-strength="0.08">
+  <div class="parallax-item image-button" data-strength="0.05">
     <a href="mobile/index.html">
       <img src="images/accf0d55d1fa88611bb1a2bc75494300.png" alt="Button 1">
     </a>
   </div>
 
-  <div class="parallax-item image-button" data-strength="0.08">
+  <div class="parallax-item image-button" data-strength="0.05">
     <a href="https://www.roblox.com/users/3606323864/profile">
       <img src="images/roblox.png" alt="Button 2">
     </a>
   </div>
 
-  <div class="parallax-item image-button" data-strength="0.08">
+  <div class="parallax-item image-button" data-strength="0.05">
     <a href="https://www.instagram.com/josestalkin">
       <img src="images/insta.png" alt="Button 3">
     </a>
@@ -190,7 +405,7 @@
   </main>
 
   <footer>
-    <a href="https://instagram/josestalkin.com">for inquiries, contact josystaw@gmail.com</a>
+    <a href="https://www.instagram.com/josestalkin/">For Inquiries, Contact josystaw@gmail.com</a>
   </footer>
 
   <script src="script.js"></script>

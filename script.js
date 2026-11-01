@@ -241,7 +241,37 @@ images.forEach(img => {
     }
 
 });
+const floatingNav = document.getElementById("floatingNav");
 
+let lastScrollY = window.scrollY;
+let ticking = false;
+
+window.addEventListener("scroll", () => {
+    if (ticking) return;
+
+    ticking = true;
+
+    requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        const scrollDifference = currentScrollY - lastScrollY;
+
+        // Always show the navbar near the top
+        if (currentScrollY < 80) {
+            floatingNav.classList.remove("nav-hidden");
+        }
+        // Hide when scrolling down
+        else if (scrollDifference > 5) {
+            floatingNav.classList.add("nav-hidden");
+        }
+        // Show when scrolling up
+        else if (scrollDifference < -5) {
+            floatingNav.classList.remove("nav-hidden");
+        }
+
+        lastScrollY = currentScrollY;
+        ticking = false;
+    });
+});
 window.addEventListener("load", () => {
 
     setLoadingProgress(100);
@@ -283,3 +313,108 @@ window.addEventListener("load", () => {
 
 
 animate();
+const pages = document.querySelectorAll(".page");
+const navLinks = document.querySelectorAll(".nav-link");
+
+navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        const targetPage = link.dataset.page;
+
+        pages.forEach(page => {
+            page.classList.remove("active");
+        });
+
+        navLinks.forEach(nav => {
+            nav.classList.remove("active");
+        });
+
+        document.getElementById(targetPage).classList.add("active");
+        link.classList.add("active");
+    });
+});
+function updateClock() {
+    const now = new Date();
+
+    const time = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Asia/Jakarta",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+    }).format(now);
+
+    const date = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Asia/Jakarta",
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    }).format(now);
+
+    document.getElementById("clockTime").textContent = time;
+    document.getElementById("clockDate").textContent = date;
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+const homeMenu = document.querySelector(".home-menu");
+const homeMenuToggle = document.getElementById("homeMenuToggle");
+const homeDropdown = document.getElementById("homeDropdown");
+
+homeMenuToggle.addEventListener("click", () => {
+    const isOpen = homeMenu.classList.toggle("is-open");
+
+    homeMenuToggle.setAttribute("aria-expanded", isOpen);
+    homeMenuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close home menu" : "Open home menu"
+    );
+});
+
+// Close when clicking outside the menu
+document.addEventListener("click", (event) => {
+    if (!homeMenu.contains(event.target)) {
+        closeHomeMenu();
+    }
+});
+
+// Close with Escape
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closeHomeMenu();
+    }
+});
+
+function closeHomeMenu() {
+    homeMenu.classList.remove("is-open");
+    homeMenuToggle.setAttribute("aria-expanded", "false");
+    homeMenuToggle.setAttribute("aria-label", "Open home menu");
+}
+
+// Switch sections using your existing page navigation
+homeDropdown.querySelectorAll("[data-page]").forEach(button => {
+    button.addEventListener("click", () => {
+        const pageId = button.dataset.page;
+        const targetPage = document.getElementById(pageId);
+
+        if (!targetPage) return;
+
+        document.querySelectorAll(".page").forEach(page => {
+            page.classList.remove("active");
+        });
+
+        targetPage.classList.add("active");
+
+        // Update your regular navigation links, if present
+        document.querySelectorAll(".nav-link").forEach(link => {
+            link.classList.toggle(
+                "active",
+                link.dataset.page === pageId
+            );
+        });
+
+        closeHomeMenu();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+});
