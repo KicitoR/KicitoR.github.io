@@ -1,4 +1,6 @@
 # KicitoR.github.io
+## V-2.1.1
+#### Added a card box and fixed a few issues with the 'updateClock' function
 ## V-2.0.0
 #### Added a Navigation Bar and a Dropdown Bar
 Changes commited:
