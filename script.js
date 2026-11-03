@@ -415,3 +415,34 @@ homeDropdown.querySelectorAll("[data-page]").forEach(button => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 });
+const photoCard = document.querySelector(".photo-card");
+const photoWrap = document.querySelector(".photo-planet-wrap");
+
+if (photoCard && photoWrap) {
+    function moveCard(x, y) {
+        const rect = photoWrap.getBoundingClientRect();
+
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const rotateY = ((x - centerX) / rect.width) * 8;
+        const rotateX = -((y - centerY) / rect.height) * 8;
+
+        photoCard.style.transform =
+            `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    }
+
+    window.addEventListener("mousemove", (e) => {
+        moveCard(e.clientX, e.clientY);
+    });
+
+    window.addEventListener("touchmove", (e) => {
+        const touch = e.touches[0];
+        moveCard(touch.clientX, touch.clientY);
+    }, { passive: true });
+
+    window.addEventListener("mouseleave", () => {
+        photoCard.style.transform =
+            "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+    });
+}
