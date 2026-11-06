@@ -2,9 +2,7 @@ const items = document.querySelectorAll(".parallax-item");
 const screenEffects = document.querySelectorAll(".screen-effect");
 
 
-/* ================================
-   NORMAL CONTENT
-   ================================ */
+/* def */
 
 const layers = [];
 
@@ -25,9 +23,7 @@ items.forEach(item => {
 });
 
 
-/* ================================
-   SCREEN EFFECTS
-   ================================ */
+/*screen eff*/
 
 const effects = [];
 
@@ -48,9 +44,7 @@ screenEffects.forEach(effect => {
 });
 
 
-/* ================================
-   SCROLL
-   ================================ */
+/*scrolly*/
 
 let lastScroll = window.scrollY;
 
@@ -160,9 +154,7 @@ window.addEventListener("load", async () => {
 
 });
 
-/* ================================
-   ANIMATION
-   ================================ */
+/*anim*/
 
 function animate() {
 
@@ -286,7 +278,7 @@ window.addEventListener("load", () => {
 
 });
 
-  /* Screen effects */
+  /*screen effect rev*/
 
   effects.forEach(effect => {
 
@@ -368,28 +360,21 @@ homeMenuToggle.addEventListener("click", () => {
         isOpen ? "Close home menu" : "Open home menu"
     );
 });
-
-// Close when clicking outside the menu
 document.addEventListener("click", (event) => {
     if (!homeMenu.contains(event.target)) {
         closeHomeMenu();
     }
 });
-
-// Close with Escape
 document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
         closeHomeMenu();
     }
 });
-
 function closeHomeMenu() {
     homeMenu.classList.remove("is-open");
     homeMenuToggle.setAttribute("aria-expanded", "false");
     homeMenuToggle.setAttribute("aria-label", "Open home menu");
 }
-
-// Switch sections using your existing page navigation
 homeDropdown.querySelectorAll("[data-page]").forEach(button => {
     button.addEventListener("click", () => {
         const pageId = button.dataset.page;
@@ -415,6 +400,7 @@ homeDropdown.querySelectorAll("[data-page]").forEach(button => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 });
+/*photo*/
 const photoCard = document.querySelector(".photo-card");
 const photoWrap = document.querySelector(".photo-planet-wrap");
 
@@ -446,3 +432,115 @@ if (photoCard && photoWrap) {
             "perspective(1000px) rotateX(0deg) rotateY(0deg)";
     });
 }
+/*document.querySelectorAll(".gallery-card").forEach(card => {
+
+    const layers = card.querySelectorAll(".parallax-layer");
+
+    card.addEventListener("mousemove", e => {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+
+        const rotateY = (x - 0.5) * 24;
+        const rotateX = (0.5 - y) * 24;
+
+        card.style.transform = `
+            perspective(1000px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+        `;
+
+        layers.forEach(layer => {
+
+            const depth = Number(layer.dataset.depth) || 0;
+
+            const moveX = (x - 0.5) * depth;
+            const moveY = (y - 0.5) * depth;
+
+            layer.style.transform = `
+                translate3d(
+                    ${moveX}px,
+                    ${moveY}px,
+                    ${depth}px
+                )
+            `;
+
+        });
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform = `
+            perspective(1000px)
+            rotateX(0deg)
+            rotateY(0deg)
+        `;
+
+        layers.forEach(layer => {
+            layer.style.transform = "translate3d(0, 0, 0)";
+        });
+
+    });
+
+}); */
+const cards = document.querySelectorAll(".gallery-card");
+let mouseX = 0;
+let mouseY = 0;
+document.addEventListener("mousemove", e => {
+
+    mouseX = e.clientX / window.innerWidth;
+    mouseY = e.clientY / window.innerHeight;
+
+});
+
+cards.forEach(card => {
+
+    const layers = card.querySelectorAll(".parallax-layer");
+
+    function updateParallax() {
+
+        const rect = card.getBoundingClientRect();
+
+        // Mouse position relative to the card center
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const x = (mouseX * window.innerWidth - centerX) / window.innerWidth;
+        const y = (mouseY * window.innerHeight - centerY) / window.innerHeight;
+        card.style.transform = `
+            perspective(1000px)
+            rotateX(${-y * 20}deg)
+            rotateY(${x * 20}deg)
+        `;
+        layers.forEach(layer => {
+
+            const depth = Number(layer.dataset.depth) || 0;
+            const rotation = Number(layer.dataset.rotate) || 0;
+
+            const moveX = x * depth;
+            const moveY = y * depth;
+
+            layer.style.transform = `
+                translate3d(${moveX}px, ${moveY}px, ${depth}px)
+                rotateX(${-y * rotation}deg)
+                rotateY(${x * rotation}deg)
+            `;
+
+        });
+
+    }
+    function animate() {
+        updateParallax();
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+});
+document.querySelectorAll("[img-aspect]").forEach(img => {
+    img.style.aspectRatio = img.getAttribute("img-aspect");
+});
+/*exper*/

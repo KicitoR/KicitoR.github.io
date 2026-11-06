@@ -15,7 +15,11 @@ body {
   -webkit-touch-callout: none;
   background: transparent;
 }
-
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+}
 
 /* =========================
    FIXED BACKGROUND
@@ -1253,7 +1257,7 @@ a:active {
 
 .hero-description {
     max-width: 430px;
-    color: #e0e2ef;
+    color: #f2f2fd;
     font-size: 15px;
     line-height: 1.8;
     margin: 24px 0;
@@ -1765,6 +1769,37 @@ a:active {
 .photo-card {
     position: relative;
     overflow: hidden;
+    border-radius: 18px;
+    z-index: 1;
+    padding: 10px;
+    border-radius: 22px;
+    background: rgba(20, 20, 35, 0);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    will-change: transform;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.25),
+        0 0 25px rgba(168, 85, 247, 0.12);
+    /*    background: rgba(20, 20, 35, 0);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 22px;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.25),
+        0 0 25px rgba(168, 85, 247, 0.12);
+        border thing*/
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease-out;
+
+    will-change: transform;
+    /*position: relative;
+    overflow: hidden;
     padding: 10px;
     border-radius: 22px;
     z-index: 1;
@@ -1780,8 +1815,9 @@ a:active {
         0 8px 32px rgba(0, 0, 0, 0.25),
         0 0 25px rgba(168, 85, 247, 0.12);
 
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease;*/
 }
+
 
 .photo-card:hover {
     transform: translateY(-5px);
@@ -1869,3 +1905,93 @@ a:active {
         right: -5%;
     }
 }
+.parallax-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    perspective: 1000px;
+}
+
+.gallery-card {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 18px;
+    /*    background: rgba(20, 20, 35, 0);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 22px;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.25),
+        0 0 25px rgba(168, 85, 247, 0.12);
+        border thing*/
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease-out;
+
+    will-change: transform;
+}
+/*.gallery-card {
+    position: relative;
+    width: 350px;
+    height: 450px;
+
+    perspective: 1000px;
+    transform-style: preserve-3d;
+
+    transition: transform 0.15s ease-out;
+}*/
+
+.parallax-layer {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    /*transform: translateZ(0);
+    transition: transform 0.2s ease-out;*/
+    transform-style: preserve-3d;
+    will-change: transform;
+
+    pointer-events: none;
+}
+.gallery-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform 0.3s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .parallax-gallery {
+        gap: 12px;
+        width: 94%;
+    }
+
+    .gallery-card {
+        border-radius: 12px;
+        aspect-ratio: 3 / 4;
+    }
+}
+[img-aspect] {
+    width: 100%;
+    object-fit: cover;
+}
+/*exper*/

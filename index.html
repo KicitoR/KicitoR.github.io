@@ -15,7 +15,6 @@
   <nav class="floating-nav" id="floatingNav">
     
 <div class="home-menu">
-    <!-- Home logo toggles the dropdown -->
     <button class="home-menu-toggle"
             id="homeMenuToggle"
             aria-label="Open home menu"
@@ -25,15 +24,13 @@
          alt="">
     </button>
 
-    <!-- Dropdown image buttons -->
     <div class="home-dropdown" id="homeDropdown">
-
-        <a href="index.html"
-          class="dropdown-item"
-          rel="noopener noreferrer">
-          <img src="images/reload.png" alt="">
-          <span>Reload</span>
-        </a>
+        <button class="dropdown-item"
+            data-page="gallery"
+            aria-label="Gallery">
+            <img src="images/gallery.png" alt="">
+            <span>Gallery</span>
+        </button>
 
         <a href="https://open.spotify.com/user/eyczlex5ln4kf2rm2b00qqnia"
           class="dropdown-item"
@@ -148,9 +145,15 @@
                 Exploring ideas, one project at a time.
             </div>
         </div>
-        <div class="crystal-flower" id="crystalFlower"></div>
+        <div class="photo-card" data-strength="0.08">
+                <div class="gallery-card" img-aspect="4.5/6">
+    <img src="/images/cutouts/herobg.png" class="parallax-layer" data-depth="15" data-rotate="5">
+    <img src="/images/cutouts/herofg.png" class="parallax-layer" data-depth="21" data-rotate="18">
+    <img src="/images/cutouts/heropg.png" class="parallax-layer" data-depth="30" data-rotate="20">
+    </div>
+        <!--div class="crystal-flower" id="crystalFlower"></div-->
         <!-- righty -->
-         <div class="photo-planet-wrap">
+         <!--div class="photo-planet-wrap">
 
     <div class="photo-card" data-strength="0.08">
             <div class="photo-card">
@@ -159,9 +162,9 @@
             <span></span>
         </div>
     </div>
-    </div>
+    </div-->
 
-    <div id="crystalFlower" class="crystal-flower"></div>
+    <!--div id="crystalFlower" class="crystal-flower"></div-->
 
 </div>
 
@@ -175,7 +178,7 @@
     </div>
     <div class="parallax-item card" data-strength="0.06">
       <p>
-        My name is Samudera, you can call me Sam.
+        Hi
       </p>
 
       <p>
@@ -187,6 +190,31 @@
 
       </p>
     </div>
+    <!--here-->
+    <div class="parallax-gallery">
+    <div class="gallery-card">
+    <img src="/images/cutouts/img1bg.png" class="parallax-layer" data-depth="10" data-rotate="2">
+    <img src="/images/cutouts/img1fg.png" class="parallax-layer" data-depth="20" data-rotate="5">
+    <img src="/images/cutouts/img1pg.png" class="parallax-layer" data-depth="30" data-rotate="10">
+    </div>
+
+    <div class="gallery-card">
+    <img src="/images/cutouts/img2bg.png" class="parallax-layer" data-depth="10" data-rotate="2">
+    <img src="/images/cutouts/img2fg.png" class="parallax-layer" data-depth="15" data-rotate="5">
+    <img src="/images/cutouts/img2pg.png" class="parallax-layer" data-depth="25" data-rotate="10">
+    </div>
+
+    <div class="gallery-card">
+    <img src="/images/cutouts/img3bg.png" class="parallax-layer" data-depth="10" data-rotate="2">
+    <img src="/images/cutouts/img3fg.png" class="parallax-layer" data-depth="20" data-rotate="5">
+    </div>
+
+    <div class="gallery-card">
+    <img src="/images/cutouts/img4bg.png" class="parallax-layer" data-depth="10" data-rotate="2">
+    <img src="/images/cutouts/img4fg.png" class="parallax-layer" data-depth="30" data-rotate="5">
+    </div>
+
+</div>
     </section>
 
     <!-- 2 i think -->
@@ -266,12 +294,6 @@
 
 <!--section id='xx' class='page'></section-->
 
-    <div class="invisible-border-thing" data-strength="0.05">
-      <p>
-
-
-      </p>
-    </div>
     <section id="misc" class="page">
     <div class="parallax-item title" data-strength="0.03">
       <h1>Miscellaneous </h1>
@@ -415,7 +437,32 @@
 </div>
 
 </section>
+<section id="gallery" class="page">
+    <div class="parallax-gallery">
+    <div class="gallery-card">
+    <img src="/images/cutouts/img1bg.png" class="parallax-layer" data-depth="10" data-rotate="2">
+    <img src="/images/cutouts/img1fg.png" class="parallax-layer" data-depth="20" data-rotate="5">
+    <img src="/images/cutouts/img1pg.png" class="parallax-layer" data-depth="30" data-rotate="10">
+    </div>
 
+    <div class="gallery-card">
+    <img src="/images/cutouts/img2bg.png" class="parallax-layer" data-depth="10" data-rotate="2">
+    <img src="/images/cutouts/img2fg.png" class="parallax-layer" data-depth="15" data-rotate="5">
+    <img src="/images/cutouts/img2pg.png" class="parallax-layer" data-depth="25" data-rotate="10">
+    </div>
+
+    <div class="gallery-card">
+    <img src="/images/cutouts/img3bg.png" class="parallax-layer" data-depth="10" data-rotate="2">
+    <img src="/images/cutouts/img3fg.png" class="parallax-layer" data-depth="20" data-rotate="5">
+    </div>
+
+    <div class="gallery-card">
+    <img src="/images/cutouts/img4bg.png" class="parallax-layer" data-depth="10" data-rotate="2">
+    <img src="/images/cutouts/img4fg.png" class="parallax-layer" data-depth="30" data-rotate="5">
+    </div>
+
+</div>
+</section>
     <!--div class="parallax-item card" data-strength="0.05">
 
       <p>
@@ -447,6 +494,6 @@
   </footer-->
 
   <script src="script.js"></script>
-  <script type="module" src="./render.js"></script>
+  <script type="module" src="/modules/render.js"></script>
 </body>
 </html>
